@@ -11,7 +11,19 @@
   font-family: "Be Vietnam Pro";
 }
 
-* {
+.visually-hidden {
+  position: absolute;
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+*/ * {
   font: inherit;
   margin: 0;
   padding: 0;
@@ -30,6 +42,7 @@ body {
 html,
 body {
   height: 100%;
+  text-rendering: optimizeSpeed;
 }
 
 html:focus-within {
@@ -45,6 +58,88 @@ picture {
 ul[role="list"],
 ol[role="list"] {
   list-style: none;
+  padding: 0;
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* navigation */
+
+.primary-header {
+  margin-top: 2.5rem;
+}
+
+.nav-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.mobile-nav-toggle {
+  display: none;
+}
+
+.nav-list {
+  font-size: 0.875rem;
+}
+
+@media (max-width: 50em) {
+  .primary-navigation {
+    display: none;
+    position: absolute;
+    padding: 1.35rem;
+    inset: 5rem 1.5rem auto;
+    background: hsl(0, 0%, 98%);
+    border-radius: 2px;
+    box-shadow: 0 0 0.75rem rgb(0, 0, 0, 0.05);
+  }
+
+  .primary-navigation::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  .nav-list {
+    display: grid;
+    gap: 1rem;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .nav-list a {
+    text-decoration: none;
+    color: hsl(233, 12%, 13%);
+  }
+
+  .nav-list a:hover,
+  .nav-list a:focus {
+    color: hsl(12, 88%, 59%);
+  }
+
+  .primary-navigation[data-visible] {
+    display: block;
+    position: fixed;
+  }
+
+  .mobile-nav-toggle {
+    display: initial;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    padding: 0.5em;
+  }
+
+  .mobile-nav-toggle .icon-close {
+    display: none;
+  }
+}
+
+.opened {
+  display: initial;
+  position: fixed;
 }
 
 .title-1 {
@@ -130,6 +225,7 @@ p {
   background-color: hsl(0, 0%, 98%);
   color: hsl(12, 88%, 59%);
 }
+
 .button[data-type="inverted"]:hover,
 .button[data-type="inverted"]:focus-visible {
   background-color: hsl(0, 0%, 98%);
@@ -144,20 +240,6 @@ p {
 }
 
 /* 
-html:focus-within {
-  scroll-behavior: smooth;
-}
-
-
-body {
-  text-rendering: optimizeSpeed;
-}
-
-a:not([class]) {
-  text-decoration-skip-ink: auto;
-}
-
-
 
 
 
