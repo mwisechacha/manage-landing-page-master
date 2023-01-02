@@ -17,6 +17,12 @@
   padding: 0;
 }
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 body {
   line-height: 1.5;
 }
@@ -24,6 +30,16 @@ body {
 html,
 body {
   height: 100%;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+img,
+picture {
+  max-width: 100%;
+  display: block;
 }
 
 ul[role="list"],
@@ -35,12 +51,14 @@ ol[role="list"] {
   color: hsl(228, 39%, 23%);
   font-weight: 700;
   font-size: 1.9rem;
+  line-height: 1.2;
 }
 
 .title-2 {
   color: hsl(228, 39%, 23%);
   font-weight: 550;
   font-size: 1.5rem;
+  line-height: 1.2;
 }
 
 .title-3 {
@@ -49,9 +67,12 @@ ol[role="list"] {
   font-size: 0.875rem;
 }
 
-/* .title-4{
-
-} */
+.title-4 {
+  color: hsl(0, 0%, 98%);
+  font-weight: 550;
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
 
 p {
   color: hsl(227, 12%, 61%);
@@ -59,14 +80,70 @@ p {
   font-size: 0.875rem;
 }
 
-/* *,
-*::before,
-*::after {
-  box-sizing: border-box;
+.container {
+  --max-width: 1110px;
+  --padding: 1rem;
+
+  width: min(var(--max-width), 100% - (var(--padding) * 2));
+  margin-inline: auto;
 }
 
+.even-columns {
+  display: grid;
+  gap: 1rem;
+}
 
+.padding-block-700 {
+  padding-block: 2rem;
+}
 
+.padding-block-900 {
+  padding-block: 3rem;
+}
+
+.first-bg {
+  background-color: hsl(12, 88%, 59%);
+}
+
+.second-bg {
+  background-color: hsl(233, 12%, 13%);
+}
+
+.button {
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 100vmax;
+  padding: 1em 2.5em;
+  color: hsl(0, 0%, 98%);
+  border: 0;
+  background-color: hsl(12, 88%, 59%);
+  font-size: 0.83rem;
+  box-shadow: 0 1.125em 1em -1em hsl(12, 60%, 45%);
+}
+
+.button:hover,
+.button:focus-visible {
+  background-color: hsl(12, 88%, 75%);
+}
+
+.button[data-type="inverted"] {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(12, 88%, 59%);
+}
+.button[data-type="inverted"]:hover,
+.button[data-type="inverted"]:focus-visible {
+  background-color: hsl(0, 0%, 98%);
+  color: hsl(12, 88%, 75%);
+}
+
+@media (min-width: 40em) {
+  .even-columns {
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+}
+
+/* 
 html:focus-within {
   scroll-behavior: smooth;
 }
@@ -80,16 +157,9 @@ a:not([class]) {
   text-decoration-skip-ink: auto;
 }
 
-img,
-picture {
-  max-width: 100%;
-  display: block;
-}
 
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
+
+
 
   *,
   *::before,
