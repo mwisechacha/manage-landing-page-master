@@ -68,7 +68,7 @@ a:not([class]) {
 /* navigation */
 
 .primary-header {
-  margin-top: 2.5rem;
+  padding-top: 2.5rem;
 }
 
 .nav-wrapper {
@@ -96,10 +96,11 @@ a:not([class]) {
     box-shadow: 0 0 0.75rem rgb(0, 0, 0, 0.05);
   }
 
-  .primary-navigation::after {
+  .primary-header[data-overlay]::before {
     content: "";
     position: absolute;
     inset: 0;
+    background-image: linear-gradient(rgb(0 0 0 / 0), rgb(0 0 0 / 0.8));
   }
 
   .nav-list {
