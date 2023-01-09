@@ -298,6 +298,19 @@ p[data-width="wide"] {
   color: hsl(12, 88%, 75%);
 }
 
+/* footer navigation */
+.footer-nav {
+  columns: 2;
+}
+.footer-nav a {
+  color: hsl(0, 0%, 98%);
+  text-decoration: none;
+}
+
+.footer-nav a:is(:hover, :focus) {
+  color: hsl(12, 88%, 59%);
+}
+
 .display-sm-none {
   display: none;
 }
