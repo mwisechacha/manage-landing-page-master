@@ -223,6 +223,8 @@ a:not([class]) {
   font-weight: 550;
   font-size: 1.5rem;
   line-height: 1.2;
+  max-width: 20ch;
+  text-align: start;
 }
 
 p {
@@ -298,11 +300,43 @@ p[data-width="wide"] {
   color: hsl(12, 88%, 75%);
 }
 
+/* socials */
+.social-list {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.social-icon {
+  width: 1rem;
+  aspect-ratio: 1;
+  fill: hsl(0, 0%, 98%);
+}
+
+.social-list a:is(:hover, :focus) .social-icon {
+  fill: hsl(12, 88%, 59%);
+}
+
+@media (min-width: 50em) {
+  .social-icon {
+    width: 2rem;
+  }
+}
+
+/* footer-logo-color */
+.footer-logo-color {
+  --logo-color: hsl(0, 0%, 98%);
+}
+
+.second-bg {
+}
+
 /* footer navigation */
 .footer-nav {
   columns: 2;
 }
 .footer-nav a {
+  font-weight: 400;
+  font-size: 0.875rem;
   color: hsl(0, 0%, 98%);
   text-decoration: none;
 }
